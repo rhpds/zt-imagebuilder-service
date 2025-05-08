@@ -1,0 +1,27 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: "01-ib-service-intro"
+      label: "Ib Service Intro"
+      solveButton: true
+    - name: "02-define-a-blueprint"
+      label: "Define A Blueprint"
+      solveButton: true
+    - name: "03-viewing-your-image"
+      label: "Viewing Your Image"
+      solveButton: true
+    - name: "04-guestfish"
+      label: "Guestfish"
+      solveButton: true
+    - name: "05-virt-customize"
+      label: "Virt Customize"
+      solveButton: true
+    - name: "06-guestfish-verify"
+      label: "Guestfish Verify"
+      solveButton: true
+
+tabs:
+  - name: ">_ terminal"
+    url: /wetty

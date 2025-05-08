@@ -1,0 +1,68 @@
+Now that we think our changes in place, it’s a good idea to verify them.
+We can go back to guestfish and look at the files in place on the
+system.
+
+____
+_NOTE_: The -i option for guestfish tells the tool to inspect the disk,
+and mount it for you. So we won’t have to go through the steps of
+listing, and then mounting disk partitions.
+____
+
+[source,bash,run]
+----
+guestfish -a ./composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2 -i
+----
+
+In the last step, we set the root password, and we added a sudoers
+drop-in. Let’s make sure both of the changes are in place.
+
+[source,bash,run]
+----
+grep root /etc/shadow
+----
+
+This should output root’s entry in /etc/shadow, we can see that a hash
+is in place where it should be for the root users password.
+
+____
+_NOTE_: Your hash will likely differ from the one listed above
+____
+
+Now, what about that sudoers drop in?
+
+[source,bash,run]
+----
+ll /etc/sudoers.d
+----
+
+____
+_NOTE_: Guestfish feels like bash, but it is not. For instance, in order
+to see the long listing in a directory, we might use `+ls -l+` in bash,
+but in guestfish this will return an error. We must use `+ll+` instead.
+____
+
+We can see that the file `+superusers+` is present, and the permissions
+are as we expect them. Let’s view the contents
+
+[source,bash,run]
+----
+cat /etc/sudoers.d/superusers
+----
+
+You can now exit guestfish with `+exit+`
+
+[source,bash,run]
+----
+exit
+----
+
+At this point we can be reasonably sure that our image is ready to be
+used as a base for new installs. You could however test further by
+running a new local VM based on this image using libvirt, or by
+uploading the image to your cloud provider to validate its
+configuration.
+
+Information on how you might upload a customized image builder image to
+your cloud provider can be found in the documention:
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/deploying_red_hat_enterprise_linux_9_on_public_cloud_platforms/index[Deploying
+Red Hat Enterprise Linux 9 on public cloud platforms].

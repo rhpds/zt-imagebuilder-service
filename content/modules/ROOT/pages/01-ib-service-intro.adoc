@@ -1,0 +1,51 @@
+____
+_NOTE:_ To make the inline images larger, expand this window.
+image:../assets/slider.png[Menu Slider]
+____
+
+Image builder is a tool that can be used to build a custom Red Hat
+Enterprise Linux base image. This image can then be deployed across your
+infrastructure, bare metal, virutal, and cloud. The Image Builder
+Service is a version of this tool hosted on the Red Hat Hybrid Cloud
+Console, at https://cloud.redhat.com, and allows you to design an image
+without requiring you to install or configure anything locally. You can
+also push these images to your cloud provider once they are complete,
+right from Image Builder itself.
+
+First, let’s head over to Red Hat’s Hybrid Cloud Console, and login. You
+should login with the following login and password:
+
+Login:
+
+[source,bash]
+----
+rhel-df93
+----
+
+Password:
+
+[source,bash]
+----
+Redhat1!
+----
+
+.Red Hat Login screen
+image::../assets/cloud-console-login.png[Red Hat Login screen]
+
+.Red Hat Password screen
+image::../assets/cloud-console-login-pass.png[Red Hat Password screen]
+
+Once you are logged in, navigate to the RHEL menu in Red Hat insights.
+
+.rhel menu
+image::../assets/rhinsightsRHEL.png[rhel menu]
+
+Click on `+Inventory+`, then `+Images+`.
+
+.inventory images
+image::../assets/inventoryimages.png[inventory images]
+
+Proceed to the next challenge by clicking the `+Next+` button.
+
+.next button
+image::../assets/nextbutton.png[next button]
