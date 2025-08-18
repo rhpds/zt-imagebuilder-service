@@ -11,8 +11,14 @@ without requiring you to install or configure anything locally. You can
 also push these images to your cloud provider once they are complete,
 right from Image Builder itself.
 
-First, let’s head over to Red Hat’s Hybrid Cloud Console, and login. You
-should login with the following login and password:
+First, let’s head over to Red Hat’s Hybrid Cloud Console, and login.
+
+Click on the `+Red Hybrid Cloud Console+` button. This will open a new tab in your browser.
+
+.Red Hybrid Cloud Console button
+image::rhcctab.png[Red Hybrid Cloud Console button]
+
+You should login with the following login and password:
 
 Login:
 
