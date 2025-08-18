@@ -1,7 +1,6 @@
-____
-_NOTE:_ To make the inline images larger, expand this window.
-image:../assets/slider.png[Menu Slider]
-____
+:imagesdir: ../assets/images
+
+== Image Builder Service Introduction
 
 Image builder is a tool that can be used to build a custom Red Hat
 Enterprise Linux base image. This image can then be deployed across your
@@ -30,22 +29,19 @@ Redhat1!
 ----
 
 .Red Hat Login screen
-image::../assets/cloud-console-login.png[Red Hat Login screen]
+image::cloud-console-login.png[Red Hat Login screen]
 
 .Red Hat Password screen
-image::../assets/cloud-console-login-pass.png[Red Hat Password screen]
+image::cloud-console-login-pass.png[Red Hat Password screen]
 
 Once you are logged in, navigate to the RHEL menu in Red Hat insights.
 
-.rhel menu
-image::../assets/rhinsightsRHEL.png[rhel menu]
+.Insights for RHEL button
+image::rhinsightsRHEL.png[rhel menu]
 
 Click on `+Inventory+`, then `+Images+`.
 
-.inventory images
-image::../assets/inventoryimages.png[inventory images]
+.Images
+image::inventoryimages.png[inventory images]
 
-Proceed to the next challenge by clicking the `+Next+` button.
-
-.next button
-image::../assets/nextbutton.png[next button]
+Proceed to the next challenge.

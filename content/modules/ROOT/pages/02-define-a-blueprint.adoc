@@ -1,7 +1,6 @@
-____
-_NOTE:_ To make the inline images larger, expand this window.
-image:../assets/slider.png[Menu Slider]
-____
+:imagesdir: ../assets/images
+
+== Define a Blueprint
 
 Press the `+Create blueprint+` button and you will be brought to the
 Create image wizard. This wizard will ask you to define several aspects
@@ -9,9 +8,9 @@ of your new image. Image builder can define a custom filesystem layout,
 add packages to your image, and even send it right to your cloud
 provider if you’d like.
 
-image:../assets/createblueprintbutton.png[../assets/createblueprintbutton]
+image:createblueprintbutton.png[createblueprintbutton]
 
-== ## Step 1: Specify image format
+==  Step 1: Specify image format
 
 In Step 1. Image output, Let’s select only
 `+Virtualization - Guest image (.qcow2)+`. But take note of the various
@@ -23,7 +22,7 @@ We will also be setting the Release to
 select several other releases for production and development use cases.
 
 .Image Builder Step 1
-image::../assets/ib-step1.png[Image Builder Step 1]
+image::ib-step1.png[Image Builder Step 1]
 
 With these options selected, Press `+Next+`.
 
@@ -39,7 +38,7 @@ To keep this lab simple, let’s clear the checkbox from
 `+Automatically register and enable advanced capabilities+`
 
 .Image Builder Step 2
-image::../assets/ib-step2.png[Image Builder Step 2]
+image::ib-step2.png[Image Builder Step 2]
 
 Now press the `+Next+` button.
 
@@ -61,7 +60,7 @@ Let’s choose `+Manually configure partitions+`, this will open up a
 table below where we can add new partitions.
 
 .Image Builder Step 3 a
-image::../assets/ib-step3a.png[Image Builder Step 3 a]
+image::ib-step3a.png[Image Builder Step 3 a]
 
 Now, you can use the `+Add partition+` button to add more partitions.
 You can also change the size or mount point of existing partitions in
@@ -79,7 +78,7 @@ Hat Enterprise Linux 9 Installation guide].
 ____
 
 .Image Builder Step 3 b
-image::../assets/ib-step3b.png[Image Builder Step 3 b]
+image::ib-step3b.png[Image Builder Step 3 b]
 
 Once your partition table looks like the one pictured above, press
 `+Next+`.
@@ -98,7 +97,7 @@ Press the `+Next+` button.
 
 Click `+Next+` until you reach the `+Details+` menu.
 
-image:../assets/detailsmenu.png[../assets/detailsmenu]
+image:detailsmenu.png[detailsmenu]
 
 == ## Step 6: Name your image
 
@@ -106,7 +105,7 @@ On Step 6 you’ll just need to give your image blueprint a name. This
 should be unique, so try something like `+rhelworkshop-(your initials)+`
 
 .Image Builder Step 5
-image::../assets/ib-step5.png[Image Builder Step 5]
+image::ib-step5.png[Image Builder Step 5]
 
 Press `+Next+`.
 
@@ -119,7 +118,7 @@ press the down-arrow next to the `+Create blueprint+` button and click
 definition, and start the build process.
 
 .Image Builder Review
-image::../assets/ib-step6.png[Image Builder Review]
+image::ib-step6.png[Image Builder Review]
 
 This will submit your job to the Image Builder queue, and bring you back
 to the list of images. Once the image build process completes, your
@@ -128,7 +127,7 @@ your cloud provider if you chose to push it to the cloud, after the
 image is built.
 
 .Image Submitted
-image::../assets/ib-submitted.png[Image Submitted]
+image::ib-submitted.png[Image Submitted]
 
 In the next step of this lab we’ll have a look at an image that was
 built with the same specifications to the one you defined here.
