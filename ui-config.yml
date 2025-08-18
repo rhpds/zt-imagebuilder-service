@@ -25,3 +25,5 @@ antora:
 tabs:
   - name: ">_ terminal"
     url: /wetty
+  - name: "Red Hybrid Cloud Console"
+    url: https://console.redhat.com/
