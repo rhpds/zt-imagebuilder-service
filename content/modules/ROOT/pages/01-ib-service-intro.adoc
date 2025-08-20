@@ -22,14 +22,14 @@ You should login with the following login and password:
 
 Login:
 
-[source,bash]
+[source,text]
 ----
 rhel-df93
 ----
 
 Password:
 
-[source,bash]
+[source,text]
 ----
 Redhat1!
 ----
