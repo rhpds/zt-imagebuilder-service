@@ -1,13 +1,6 @@
-`+virt-customize+` is another libguestfs interface tool that will let
-you edit a disk image. `+guestfish+` is great for interactive editing
-(and is of course able to be scripted), and `+virt-customize+` is better
-for actions that are carried out automatically.
+`+virt-customize+` and `+virt-copy-in+` are `guestfs` and `libguestfs` interface tools that will let you edit a disk image. `+guestfish+` is great for interactive editing (and is of course able to be scripted), and `+virt-customize+` and `+virt-copy-in+` are better for actions that are carried out automatically.
 
-For instance. With `+guestfish+` I could either directly create, or
-script the creation, of a file within a guest image. With
-`+virt-customize+` it’s easier to just place an already created file, or
-install that file via an rpm. These are both powerful tools, that serve
-similar jobs in different ways.
+For instance. With `+guestfish+` I could either directly create, or script the creation, of a file within a guest image. With `+virt-customize+` and `+virt-copy-in+` it’s easier to just place an already created file, or install that file via an rpm. These are both powerful tools, that serve similar jobs in different ways.
 
 Let’s add a welcome message to the image. We'll copy the motd file into the image. You can view the contents of the motd file with the following command.
 
@@ -23,11 +16,7 @@ So we’ll use `+virt-copy-in+` to set the motd to the contents of that file.
 virt-copy-in -a /var/lib/libvirt/images/composer_api_disk.qcow2 /root/motd /etc
 ----
 
-`+virt-copy-in+` will let us copy files in place and set permissions. Let’s say we’ve got a sudoers drop-in we’d like in place on
-all of our systems. In your home directory is a drop-in to allow users in the `+superusers+` group to control the `+sshd+` service.
-
-Then to be safe, we should correct the permissions on the file that we
-just placed.
+`+virt-copy-in+` will let us copy files in place. We can use `+virt-customize+` to set permissions.
 
 [source,bash,run]
 ----

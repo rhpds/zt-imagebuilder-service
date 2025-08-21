@@ -1,5 +1,5 @@
 In the tab labelled `+Terminal+` there is a running RHEL 10 system. On
-that system, there is a disk image in `+/var/lib/libvirt/images/+` named:
+that system, there is a disk image in `+/var/lib/libvirt/images/+`.
 
 [source,bash,run]
 ----
