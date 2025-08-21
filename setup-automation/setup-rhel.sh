@@ -10,3 +10,12 @@
 # hostnamectl set-hostname rhel-$(uuidgen | cut -c 32-)
 # echo "export LIBGUESTFS_BACKEND=direct" >> /root/.bashrc
 # exec $SHELL
+
+mkdir -p /mnt/image
+mount /dev/sr0 /mnt/image
+
+
+
+
+
+
