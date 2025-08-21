@@ -26,13 +26,8 @@ You can now exit guestfish with `+exit+`
 exit
 ----
 
-At this point we can be reasonably sure that our image is ready to be
-used as a base for new installs. You could however test further by
-running a new local VM based on this image using libvirt, or by
-uploading the image to your cloud provider to validate its
-configuration.
+At this point we can be reasonably sure that our image is ready to be used as a base for new installs.
 
-Information on how you might upload a customized image builder image to
-your cloud provider can be found in the documention:
+Information on how you might upload a customized image builder image to your cloud provider can be found in the documentation:
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/deploying_red_hat_enterprise_linux_9_on_public_cloud_platforms/index[Deploying
 Red Hat Enterprise Linux 9 on public cloud platforms].
