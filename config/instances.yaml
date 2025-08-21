@@ -25,4 +25,4 @@ virtualmachines:
             volumeMode: Block
             resources:
               requests:
-                storage: "20Mi"
+                storage: "1Gi"
