@@ -1,3 +1,5 @@
+:imagesdir: ../assets/images
+
 Now that we think our changes in place, it’s a good idea to verify them.
 We can go back to guestfish and look at the files in place on the
 system.
@@ -17,7 +19,18 @@ cat /etc/motd
 ----
 
 .motd
-images::new_motd.png[New MOTD]
+image::new_motd.png[New MOTD]
+
+Let's check the permissions on the motd file.
+
+[source,bash,run]
+----
+ll /etc/motd
+----
+
+.motd permissions
+image::motd_permissions.png[MOTD permissions]
+
 
 You can now exit guestfish with `+exit+`
 
