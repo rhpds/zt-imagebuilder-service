@@ -12,7 +12,7 @@ package, and has already been installed on this system.
 
 [source,bash,run]
 ----
-guestfish -a composer_api_disk.qcow2
+guestfish -a /var/lib/libvirt/images/composer_api_disk.qcow2
 ----
 
 Once we’re at the `+<fs>+` prompt, we have to tell guestfish to
