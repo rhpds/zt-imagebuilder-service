@@ -11,3 +11,18 @@ virtualmachines:
         value: "bastions"
     networks:
       - default
+    cdroms:
+      - metadata:
+          name: "vm-image"
+        spec:
+          source:
+            pvc:
+              name: "imagebuilder-service-lab-08-21-25"
+              namespace: cnv-images
+          pvc:
+            accessModes:
+              - ReadWriteMany
+            volumeMode: Block
+            resources:
+              requests:
+                storage: "20Mi"
