@@ -1,9 +1,9 @@
 In the tab labelled `+Terminal+` there is a running RHEL 10 system. On
 that system, there is a disk image in `+/root/+` named:
 
-[source,bash]
+[source,bash,run]
 ----
-composer_api.qcow2
+ls -la /root
 ----
 
 This image was built using the Image Builder service, using the same
@@ -15,13 +15,13 @@ image is a QEMU qcow2 disk image.
 
 [source,bash,run]
 ----
-file composer-api.qcow2
+file composer_api_disk.qcow2
 ----
 
 [source,text]
 ----
-[root@rhel ~]# file composer_api.qcow2
-composer_api.qcow2: QEMU QCOW Image (v3), 18470666240 bytes (v3), 18470666240 bytes
+[root@rhel ~]# file composer_api_disk.qcow2
+composer_api_disk.qcow2: QEMU QCOW Image (v3), 18470666240 bytes (v3), 18470666240 bytes
 ----
 
 At this point, you could take this image and run a VM from it, or upload

@@ -12,7 +12,7 @@ package, and has already been installed on this system.
 
 [source,bash,run]
 ----
-guestfish -a composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
+guestfish -a composer_api_disk.qcow2
 ----
 
 Once we’re at the `+<fs>+` prompt, we have to tell guestfish to
