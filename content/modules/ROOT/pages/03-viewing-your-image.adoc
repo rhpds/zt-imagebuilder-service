@@ -1,9 +1,9 @@
-In the tab labelled `+Terminal+` you should find a RHEL 9 system. On
-that system, in your home directory, there is a disk image named:
+In the tab labelled `+Terminal+` there is a running RHEL 10 system. On
+that system, there is a disk image in `+/mnt/image+` named:
 
 [source,bash]
 ----
-composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
+composer_api_3f3c1824_647.qcow2
 ----
 
 This image was built using the Image Builder service, using the same
@@ -19,6 +19,13 @@ file composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2
 ----
 
 `+composer-api-ee3492f7-5d95-4c1b-a223-bbf04b9adef4-disk.qcow2: QEMU QCOW2 Image (v3), 18991808512 bytes+`
+
+[source,text]
+----
+[root@rhel ~]# file /mnt/image/composer_api_3f3c1824_647.qcow2
+/mnt/image/composer_api_3f3c1824_647.qcow2: QEMU QCOW Image (v3), 18470666240 bytes (v3), 18470666240 bytes
+----
+
 
 At this point, you could take this image and run a VM from it, or upload
 it to your custom images on your cloud provider. But first we’re going
