@@ -24,7 +24,7 @@ Login:
 
 [source,text]
 ----
-rhel-df93
+rhel-8bf8
 ----
 
 Password:
