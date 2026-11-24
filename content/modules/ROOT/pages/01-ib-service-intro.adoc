@@ -40,9 +40,9 @@ image::cloud-console-login.png[Red Hat Login screen]
 .Red Hat Password screen
 image::cloud-console-login-pass.png[Red Hat Password screen]
 
-Once you are logged in, navigate to the RHEL menu in Red Hat insights.
+Once you are logged in, navigate to the RHEL menu in Red Hat Lightspeed.
 
-.Insights for RHEL button
+.Lightspeed for RHEL button
 image::rhinsightsRHEL.png[rhel menu]
 
 Click on `+Inventory+`, then `+Images+`.

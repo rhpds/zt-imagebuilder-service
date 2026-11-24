@@ -2,7 +2,7 @@
 
 == Create a Blueprint
 
-Red Hat Insights Image Builder Blueprints allow you to create, save, and edit revisions over time. A blueprint provides a declarative definition of how to assemble RHEL, including software package content and configuration options. We'll be using a blueprint to create a custom image for our lab.
+Red Hat Lightspeed Image Builder Blueprints allow you to create, save, and edit revisions over time. A blueprint provides a declarative definition of how to assemble RHEL, including software package content and configuration options. We'll be using a blueprint to create a custom image for our lab.
 
 == Create image blueprint
 
@@ -45,7 +45,7 @@ With these options selected, Press `+Next+`.
 Image builder provides several optional steps that can be useful for your environment. We will go through each of these steps.
 
 
-=== Configure Insights registration
+=== Configure Lightspeed registration
 
 [%collapsible]
 ====
@@ -53,9 +53,9 @@ Image builder provides several optional steps that can be useful for your enviro
 We're presented with 3 registration options:
 
 . Automatically register and enable advanced capabilities
-    * This will register the system with Red Hat Insights and enable advanced capabilities.
+    * This will register the system with Red Hat Lightspeed and enable advanced capabilities.
 . Register later
-    * This will register the system with Red Hat Insights later.
+    * This will register the system with Red Hat Lightspeed later.
 . Register with Satellite
     * This will register the system with Red Hat Satellite. This is useful if you are using Satellite to manage your systems.
 
