@@ -1,6 +1,5 @@
+= Inspecting an Image with guestfish
 :imagesdir: ../assets/images
-
-== Guestfish
 
 `+guestfish+` is the Guest Filesystem Shell, and is one tool that can be
 used to view or modify your newly created image. Today we’re going to

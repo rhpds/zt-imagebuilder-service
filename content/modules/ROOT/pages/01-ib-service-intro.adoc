@@ -1,6 +1,5 @@
+= Image Builder Service Introduction
 :imagesdir: ../assets/images
-
-== Image Builder Service Introduction
 
 Image builder is a tool that can be used to build a custom Red Hat
 Enterprise Linux base image. This image can then be deployed across your

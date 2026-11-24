@@ -1,6 +1,5 @@
+= Create a Blueprint
 :imagesdir: ../assets/images
-
-== Create a Blueprint
 
 Red Hat Lightspeed Image Builder Blueprints allow you to create, save, and edit revisions over time. A blueprint provides a declarative definition of how to assemble RHEL, including software package content and configuration options. We'll be using a blueprint to create a custom image for our lab.
 

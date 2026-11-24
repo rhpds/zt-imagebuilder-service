@@ -1,3 +1,5 @@
+= Customizing an Image with virt-customize
+
 `+virt-customize+` and `+virt-copy-in+` are `guestfs` and `libguestfs` interface tools that will let you edit a disk image. `+guestfish+` is great for interactive editing (and is of course able to be scripted), and `+virt-customize+` and `+virt-copy-in+` are better for actions that are carried out automatically.
 
 For instance. With `+guestfish+` I could either directly create, or script the creation, of a file within a guest image. With `+virt-customize+` and `+virt-copy-in+` it’s easier to just place an already created file, or install that file via an rpm. These are both powerful tools, that serve similar jobs in different ways.

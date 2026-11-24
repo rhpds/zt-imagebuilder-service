@@ -1,3 +1,4 @@
+= Verifying Your Changes
 :imagesdir: ../assets/images
 
 Now that we think our changes in place, it’s a good idea to verify them.
