@@ -22,14 +22,14 @@ You should login with the following login and password:
 
 Login:
 
-[source,text]
+[source,console]
 ----
 rhel-8bf8
 ----
 
 Password:
 
-[source,text]
+[source,console]
 ----
 Redhat1!
 ----
