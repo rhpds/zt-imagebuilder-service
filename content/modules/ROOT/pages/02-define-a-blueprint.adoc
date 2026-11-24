@@ -4,341 +4,79 @@
 
 Red Hat Lightspeed Image Builder Blueprints allow you to create, save, and edit revisions over time. A blueprint provides a declarative definition of how to assemble RHEL, including software package content and configuration options. We'll be using a blueprint to create a custom image for our lab.
 
-== Create image blueprint
+From the Image Builder page, start a new image build to open the `Build an image` wizard. The wizard walks you through four steps — `Base settings`, `Repositories and packages`, `Advanced settings`, and `Review`.
 
-Start the process by clicking the `+Create image blueprint+` button.
+== Base settings
 
-[%collapsible]
+=== Details and image output
+
+Give your image a `Name`; a description is optional. Make it something unique, such as `rhelworkshop-<your initials>`.
+
+Under `Image output`, choose the `Image type`. Image Builder gives you the option to build either a `Package mode` (traditional) RHEL installation, or an `Image mode` (bootc) based image. We will be using the traditional `Package mode`.
+
+.Base settings — name and image type
+image::2026/ib-wiz-step1-name.png[Base settings name and image type]
+
+Next, select `Red Hat Enterprise Linux (RHEL) 10` for the release, and `x86_64` for your architecture.
+
+Note that the `Target environment` can be set to a public or private cloud, or to other formats such as a raw `.qcow2` or an installer ISO for universal installation media. Let's choose `Virtualization - Guest image (.qcow2)`.
+
+=== Register
+
+We can also choose to automatically register our system. Let's set the `Registration method` to `Automatically register to Red Hat Hybrid Cloud Console`, and leave the options for `Enable predictive analytics and management capabilities` and `Enable remote remediations` enabled. This allows you to more proactively manage your RHEL system from the Hybrid Cloud Console.
+
+An activation key tells the image which account to link this system to when it automatically registers. Normally you would create a key that fits the purpose of this system and select it here. Because this is only a demo, it does not matter which activation key you choose — leave it at whatever default was selected for you.
+
+.Register — registration method and activation key
+image::2026/ib-wiz-step1-reg.png[Register]
+
+=== Security and compliance
+
+Scroll down in this window and you will see options for a repeatable build, and a security and compliance policy. Compliance policies let you apply a standard OpenSCAP profile, or select a custom policy that you have tailored for your organization using the Red Hat Lightspeed compliance tool.
+
+Let's select `Use a default OpenSCAP profile`, and choose `CIS Red Hat Enterprise Linux 10 Benchmark for Level 2 - Server` in the drop-down list.
+
+.Security — default OpenSCAP profile
+image::2026/ib-wiz-scap.png[Security OpenSCAP profile]
+
+Now press `Next`.
+
+== Repositories and packages
+
+On the `Repositories and packages` page, you can add custom software repositories that you have defined within the Hybrid Cloud Console, and then select additional software to add to your image.
+
+Let's add Apache's `httpd` as a package under the `Packages` heading. Leave the `Package type` drop-down set to `Individual packages`, enter `httpd` in the search box, and select `httpd` in the list.
+
+.Add the httpd package
+image::2026/ib-wiz-packages.png[Add the httpd package]
+
+You will see `httpd` show up in the list of packages below — along with the packages added by the CIS compliance policy we selected — with a version and a retirement date.
+
+.httpd added to the image
+image::2026/ib-wiz-pacages-selected.png[httpd added to the image]
+
+[TIP]
 ====
-Press the `+Create blueprint+` button and you will be brought to the
-Create image wizard. This wizard will ask you to define several aspects
-of your new image. Image builder can define a custom filesystem layout,
-add packages to your image, and even send it right to your cloud
-provider if you’d like.
-
-image:createblueprintbutton.png[createblueprintbutton]
-====
-
-== Specify image output
-
-Specify the image output format. eg. qcow2, vmdk, vhdx, etc. or output to a cloud provider.
-
-[%collapsible]
-====
-In Step 1. Image output, let’s select only
-`+Virtualization - Guest image (.qcow2)+`. But take note of the various
-options Image Builder gives you for what format you’d like your image
-built in.
-
-We will also be setting the Release to
-`+Red Hat Enterprise Linux (RHEL) 10+`, but notice that you can also
-select several other releases for production and development use cases.
-
-.Image Builder Step 1
-image::ib-step1.png[Image Builder Step 1]
-
-With these options selected, Press `+Next+`.
-====
-
-== Optional Steps - Configure your image
-
-Image builder provides several optional steps that can be useful for your environment. We will go through each of these steps.
-
-
-=== Configure Lightspeed registration
-
-[%collapsible]
-====
-
-We're presented with 3 registration options:
-
-. Automatically register and enable advanced capabilities
-    * This will register the system with Red Hat Lightspeed and enable advanced capabilities.
-. Register later
-    * This will register the system with Red Hat Lightspeed later.
-. Register with Satellite
-    * This will register the system with Red Hat Satellite. This is useful if you are using Satellite to manage your systems.
-
-To keep this lab simple, we'll select `+Register later+`.
-
-.Register later
-image::register_later.png[Register later]
-
-Now press the `+Next+` button.
+This retirement date is valuable data. For any supported package you add via this method, you can see at a glance exactly how long you can expect to receive support from Red Hat for that package. In `httpd`'s case, it lives for the entire 10-year lifecycle of RHEL 10, ending in May of 2035.
 ====
 
-=== OpenSCAP Profile
+Press `Next`.
 
-[%collapsible]
-====
-In this step you can select an OpenSCAP profile. This will apply an
-OpenSCAP compliance policy to this image when it is built. This is great
-for environments that must adhere to compliance standards, or admins
-that are just looking to add some security best practices to their base
-image.
+== Advanced settings
 
-For this lab, we’ll leave the configuration as is. Click `+Next+`.
+On the `Advanced settings` page you can configure options such as the filesystem layout, time zone and NTP, users, kernel arguments, and firewall rules.
 
-====
+You will see that our CIS compliance policy has already laid out some custom partitions for us. We could add more by pressing the `+` button at the bottom of the list, but the policy has done a good job of setting a compliant layout, so let's continue on.
 
-=== File system configuration
+.File system configuration defined by the CIS policy
+image::2026/ib-wiz-filesystems.png[File system configuration]
 
-[%collapsible]
-====
+Press `Next`.
 
-We can manually configure the partitions of this system, or
-we can choose to let Image Builder set things up for us automatically.
-Let’s choose `+Manually configure partitions+`, this will open up a
-table below where we can add new partitions.
+== Review and build
 
-.Manually configure partitions
-image::manually-configure-partitions.png[manually-configure-partitions]
+You will be presented with the review page. Here you can simply save the blueprint by pressing `Create blueprint`, or you can press the down-arrow next to it and select `Create blueprint and build image`. This option can save you some time, so go ahead and click the down-arrow and select `Create blueprint and build image`.
 
-Now, you can use the `+Add partition+` button to add more partitions.
-You can also change the size or mount point of existing partitions in
-the table. Even remove partitions that you may have added by mistake.
+You will be brought to the Images list for your blueprint, and should see your image building.
 
-Let’s use the `+Add partition+` button to add a 5GiB /home and 2GiB /tmp
-to our image. You should end up with the following layout.
-
-NOTE: This partition layout is for example purposes only, and not a
-recommended production system layout. More information on manual
-partitioning recommendations can be found in the
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/performing_a_standard_rhel_9_installation/assembly_customizing-your-installation_installing-rhel#manual-partitioning_graphical-installation[Red
-Hat Enterprise Linux 9 Installation guide].
-
-
-
-.Home and tmp partitions
-image::home-tmp.png[home-tmp]
-
-Once your partition table looks like the one pictured above, press
-`+Next+`.
-
-====
-
-=== Repeatable build
-
-[%collapsible]
-====
-
-The Repeatable build option allows you to configure the blueprint to use a specific version of content based on date. This option is useful if you want to always use the same version of content for your image.
-
-.Repeatable build
-image::repeatable-build.png[repeatable-build]
-
-For this lab, we'll leave the default option of `+Disable repeatable build+`.
-
-Press `+Next+`.
-
-====
-
-=== Custom repositories
-
-[%collapsible]
-====
-
-The Custom repositories option allows you to add custom repositories to your image, such as Extended Packages for Enterprise Linux (EPEL), or Microsoft's VSCode repository. This is useful if you want to add additional packages to your image, from repositories that are not distributed by Red Hat.
-
-.Custom repositories
-image::custom-repositories.png[custom-repositories]
-
-For this lab, we won't add any custom repositories.
-
-Press `+Next+`.
-
-====
-
-=== Additional packages
-
-[%collapsible]
-====
-We can select packages that we would like installed on our system. The base image produced by Image Builder is intended to be small, and makes few assumptions about your desired package set. Having the ability to add in packages here can save you time later, negating the need to install packages after the image is built. For this lab, let’s leave the default package set in place. In future, if you wanted to add some packages, you could do so in this step.
-
-.Additional packages
-image::additional-packages.png[additional-packages]
-
-For this lab, we won't add any additional packages.
-
-Press the `+Next+` button.
-
-====
-
-=== Users
-
-[%collapsible]
-====
-In this option, we can add one or more users to the image. This option is useful for creating users that will require access to the system after it has been deployed.
-
-Click on `+Add user+` to add a user to the image.
-
-.Click `+Add user+` to add a user to the image.
-image::add-user-begin.png[add-user-begin]
-
-Let's add the user `+rhel+` by performing the following steps:
-
-. Enter the username `+rhel+` in the `+Username+` field.
-. Enter the password `+redhat+` in the `+Password+` field.
-. We want this user to have administrative (root) privileges, so we'll check the `+Administrator+` checkbox.
-
-.Add user
-image::add-user.png[add-user]
-
-NOTE: You can paste your ssh public key into the `+SSH key+` field to allow you to login to the system via ssh after it has been deployed.
-
-Press the `+Next+` button.
-
-====
-
-=== Timezone
-
-[%collapsible]
-====
-
-In this option, we can select the timezone for the image and add additional NTP servers. For this lab, we won't change anything.
-
-.Timezone
-image::timezone.png[timezone]
-
-Press the `+Next+` button.
-
-====
-
-=== Locale
-
-[%collapsible]
-====
-
-In this option, we can select the locale for the image. For example, you can change the language of the system as well as the keyboard layout. For this lab, we won't change anything.
-
-.Locale
-image::locale.png[locale]
-
-Press the `+Next+` button.
-
-====
-
-=== Hostname
-
-[%collapsible]
-====
-
-Here we can set the hostname for the image. For this lab, we won't change anything.
-
-.Hostname
-image::hostname.png[hostname]
-
-Press the `+Next+` button.
-
-====
-
-=== Kernel
-
-[%collapsible]
-====
-
-Here we can choose to use `kernel` or `kernel-debug` packages in our system, as well as any kernel arguments we may require. For this lab, we won't change anything.
-
-.Kernel
-image::kernel.png[kernel]
-
-Press the `+Next+` button.
-
-====
-
-=== Firewall
-
-[%collapsible]
-====
-
-In this option, we can choose to enable or disable ports in the firewall on the image. For this lab, we won't change anything.
-
-.Firewall
-image::firewall.png[firewall]
-
-Press the `+Next+` button.
-
-====
-
-=== Systemd services
-
-[%collapsible]
-====
-
-If you would like to enable or disable systemd services on the image, you can do so here. For this lab, we won't change anything.
-
-.Systemd services
-image::systemd.png[systemd-services]
-
-Press the `+Next+` button.
-
-====
-
-=== First boot script configuration
-
-[%collapsible]
-====
-
-
-Here we can configure the first boot script for the image. This section may be useful if you want to run a script that configures the system the first time it boots. For this lab, we won't change anything.
-
-.First boot script configuration
-image::first-boot.png[first-boot-script]
-
-Press the `+Next+` button.
-
-====
-
-== Details
-
-Provide a name for your image blueprint.
-
-[%collapsible]
-====
-
-Give your image blueprint a name. This should be unique, so try something like `+rhelworkshop-<your initials>+`. As well provide a meaningful description of your image blueprint.
-
-.Image blueprint name
-image::details-name.png[Image blueprint name]
-
-Press `+Next+`.
-
-====
-
-== Review image configuration
-
-Review the image configuration and make any changes if needed.
-
-[%collapsible]
-
-====
-You can review the choices you’ve made and go back and make changes if you need to. If everything looks right, just press the `+Create blueprint and build image(s)+` button. Clicking this button will save the blueprint definition, and start the build process.
-
-.Create blueprint and build image(s)
-image::create-blueprint-build.png[Create blueprint and build image(s)]
-
-This will submit your job to the Image Builder queue, and bring you back
-to the list of images. Once the image build process completes, your
-image will be ready for download, or give you the option to launch it on
-your cloud provider if you chose to push it to the cloud, after the
-image is built.
-
-====
-
-== Image submitted
-
-Submit your image blueprint to the Image Builder queue.
-
-[%collapsible]
-
-====
-
-You will return to the Images menu, and see that your image is in the `+Pending+` state. It will eventually change status to `+Image build in progress+`.
-
-.Image Submitted
-image::image-submitted.png[Image Submitted]
-
-In the next step of this lab we’ll have a look at an image that was
-built with the same specifications to the one you defined here.
-
-====
+In the next step of this lab we'll have a look at an image that was built with the same specifications as the one you defined here.
